@@ -3,10 +3,12 @@ import { BsFillGeoAltFill, BsFillGeoFill } from "react-icons/bs";
 import { HiBadgeCheck } from "react-icons/hi";
 import { BookingContext } from "../api/store";
 import { sendMessage } from "../api/telegram";
+import { useRouter } from "next/router";
 
 const CheckoutPage = () => {
   const { booking } = useContext(BookingContext);
   const formRef = useRef();
+  const router = useRouter();
 
   const data = useMemo(() => {
     if (booking?.pickup_location) {
@@ -29,6 +31,7 @@ const CheckoutPage = () => {
     const bookingInfo = { ...booking, ...formProps };
 
     sendMessage(bookingInfo);
+    router.replace("/book-success", "dat-xe-thanh-cong");
   };
 
   return (
