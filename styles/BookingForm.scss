@@ -245,3 +245,9 @@
     bottom: 20px;
   }
 }
+
+@media screen and (max-height: 700px) {
+  .booking__form {
+    height: 120vh !important;
+  }
+}

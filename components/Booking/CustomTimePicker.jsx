@@ -39,10 +39,9 @@ const TimePicker = ({ timePicker, setTimePicker }) => {
         onChange={handleDateChange}
         onFocus={() => {
           dateRef.current.type = "date";
-          dateRef.current.showPicker();
           dateRef.current.valueAsDate = new Date();
+          dateRef.current.showPicker();
         }}
-        // onBlur={() => (dateRef.current.type = "text")}
         placeholder="Thời gian đón"
       />
 
@@ -68,8 +67,8 @@ const TimePicker = ({ timePicker, setTimePicker }) => {
           const hour = new Date().getHours();
           const min = new Date().getMinutes();
           timeRef.current.type = "time";
-          timeRef.current.showPicker();
           timeRef.current.value = hour + ":" + min;
+          timeRef.current.showPicker();
         }}
       />
     </>
