@@ -1,0 +1,180 @@
+.list__taxi-card {
+  // width: 1000px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.taxi__card {
+  // width: 80%;
+  box-shadow: 0 9px 12px 3px rgba(72, 13, 13, 0.06);
+  border: 2px solid #ccc;
+  border-radius: var(--border-radius);
+  &:hover {
+    border: 2px solid var(--color-primary);
+  }
+  // margin: 30px 0;
+
+  .taxi__card-desktop {
+    display: grid;
+    grid-template-columns: 34% 66%;
+
+    .card__img {
+      padding: 20px;
+      // width: 33.3%;
+      border-right: 1px solid #ccc;
+
+      & img {
+        width: 100%;
+        height: auto;
+      }
+
+      .card__img-name {
+        font-family: var(--font-alt);
+        font-weight: 600;
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+
+    .card__info {
+      // flex: 1;
+      padding: 20px;
+
+      .card__info-header {
+        display: flex;
+        justify-content: space-between;
+        // align-items: center;
+        padding-bottom: 16px;
+        // border-bottom: 1px dashed #ccc;
+
+        .info__header-left {
+          .header__left-title {
+            font-size: 16px;
+          }
+
+          .header__left-rate {
+            color: var(--color-orange);
+            line-height: 20px;
+          }
+        }
+
+        .info__header-right {
+          text-transform: none;
+          text-align: right;
+          .header__price-old {
+            color: var(--color-grey);
+            font-size: 14px;
+            line-height: 16px;
+            text-decoration: line-through;
+          }
+
+          .header__price-new {
+            color: var(--color-orange);
+            font-size: 16px;
+          }
+        }
+      }
+
+      .card__info-bottom-desktop {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding-top: 16px;
+        grid-column-gap: 0px;
+
+        .info__bottom-left {
+          .detail__client {
+            gap: 20px;
+          }
+        }
+
+        .info__bottom-right {
+          button {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+
+  .card__info-bottom-mobile {
+    display: none;
+    padding: 16px 16px 8px;
+
+    .info__bottom-mobile-btn {
+      width: 100%;
+      margin-top: 12px;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .taxi__card {
+    width: 70%;
+    margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .taxi__card {
+    width: 90%;
+    grid-template-columns: 40% 60%;
+    // grid-template-rows: 50% 50%;
+    margin: 16px 0;
+
+    .card__info-header {
+      border-bottom: 1px dashed #ccc;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .taxi__card {
+    width: 90%;
+    grid-template-columns: 40% 60%;
+    // grid-template-rows: 50% 50%;
+    margin: 16px 0;
+
+    .card__info-header {
+      border-bottom: 1px dashed #ccc;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .taxi__card {
+    margin: 10px 0;
+    .taxi__card-desktop {
+      grid-template-columns: 50% 50%;
+      border-bottom: 1px dashed #ccc;
+
+      .card__img {
+        border: none;
+      }
+      .card__info-header {
+        border-bottom: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 0 !important;
+        gap: 36px;
+
+        .info__header-right {
+          text-align: left !important;
+        }
+      }
+    }
+    .card__info-bottom-desktop {
+      display: none !important;
+    }
+    .card__info-bottom-mobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

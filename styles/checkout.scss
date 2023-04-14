@@ -1,0 +1,166 @@
+.checkout__page {
+  // height: 100vh;
+  .separator {
+    height: 1px;
+    width: 100%;
+    background: var(--color-grey);
+    margin: 20px 0;
+  }
+
+  .section__separator {
+    color: var(--color-grey);
+    padding: 8px 18px;
+  }
+  .checkout__wrap {
+    display: grid;
+    font-family: var(--font-alt);
+    padding: 40px 16px;
+    box-shadow: var(--box-shadow);
+
+    // left form
+    .checkout__left {
+      padding: 10px 20px;
+
+      .checkout__tittle {
+        color: var(--color-primary);
+        font-size: 18px;
+        padding-bottom: 10px;
+      }
+
+      .location__info {
+        font-weight: 700;
+        padding-bottom: 10px;
+        color: var(--color-space-grey);
+        svg {
+          color: var(--color-grey);
+          margin-right: 6px;
+        }
+      }
+
+      .booking__text-info {
+        font-weight: 700;
+        padding-bottom: 10px;
+        color: var(--color-space-grey);
+        .text__info-title {
+          color: var(--color-gray);
+          font-weight: 600;
+        }
+      }
+
+      .checkout__note {
+        color: var(--color-primary);
+        font-weight: 700;
+        font-style: italic;
+      }
+    }
+
+    // right form
+    .checkout__right {
+      padding: 10px 20px 0;
+
+      .c__form-input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px;
+
+        .c__input-label {
+          font-weight: 700;
+          padding-bottom: 10px;
+          color: var(--color-space-grey);
+        }
+
+        .c__input {
+          width: 100%;
+          padding: 6px 8px;
+          border: 1px solid #e0e0e0;
+          font-size: 16px;
+          outline-color: var(--color-primary);
+        }
+        textarea {
+          height: 80px;
+        }
+      }
+
+      .c__payment {
+        color: var(--color-gray);
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 26px;
+        span {
+          color: var(--color-space-grey);
+        }
+      }
+
+      .checkout__price {
+        .text__info-title {
+          color: var(--color-gray);
+          font-weight: 600;
+          font-size: 18px;
+        }
+
+        .total__price {
+          color: var(--color-orange);
+          font-size: 22px;
+          font-weight: 700;
+        }
+      }
+
+      .c__form-submit {
+        margin-top: 30px;
+        .c__submit-btn {
+          // font-size: 18px;
+          padding: 12px 30px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .checkout__page {
+    margin-top: 60px;
+  }
+  .section__separator {
+    display: none;
+  }
+
+  .checkout__wrap {
+    grid-template-columns: 50% 50%;
+
+    .checkout__right {
+      border-left: 2px solid var(--color-grey);
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .checkout__wrap {
+    grid-template-rows: auto auto;
+
+    .separator {
+      display: none;
+    }
+
+    .section__separator {
+      display: none;
+    }
+
+    .checkout__right {
+      border-left: none;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .checkout__page {
+    &.section__padding {
+      padding-top: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .c__submit-btn {
+    width: 100%;
+  }
+}

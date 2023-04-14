@@ -1,0 +1,61 @@
+.footer {
+  background: #25325d;
+  min-height: 340px;
+  padding: 2rem 2rem 0;
+  font-family: var(--font-alt);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .footer__top {
+    display: grid;
+
+    .company__info {
+      color: var(--color-white);
+      font-family: var(--font-alt);
+
+      .address {
+        padding-left: 8px;
+
+        .address__item {
+          padding-bottom: 12px;
+        }
+      }
+    }
+
+    .services {
+      color: var(--color-white);
+      font-family: var(--font-alt);
+
+      h4:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  .footer__quote {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    color: var(--color-white);
+    border-top: 1px solid var(--color-white);
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .footer {
+    .footer__top {
+      grid-template-columns: 50% 20%;
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+}
+
+@media screen and (max-width: 850px) {
+}
+
+@media screen and (max-width: 650px) {
+}

@@ -1,0 +1,41 @@
+.book__success {
+  height: 60vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+
+  .noti__wrap {
+    height: fit-content;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    border: 1.4px solid var(--color-primary);
+    font-family: var(--font-alt);
+    // text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+
+    h3 {
+      color: var(--color-primary);
+    }
+    p {
+      margin: 12px 0;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      color: var(--color-gray);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      // border: 1px solid var(--color-orange);
+      background-image: #e0e0e0;
+      &:hover {
+        box-shadow: var(--box-shadow);
+      }
+    }
+  }
+}
