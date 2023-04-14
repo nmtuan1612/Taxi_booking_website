@@ -156,8 +156,7 @@ const DatXeGhep = () => {
                 {/* Title */}
                 <div className="booking__form-title p__opensans flex__center">
                   <h1>
-                    Đặt xe ghép Hà Nội - Bắc Ninh, Bắc Giang đồng giá 200k /
-                    Khách
+                    Đặt xe ghép Hà Nội - Bắc Ninh, Bắc Giang đồng giá 200k/Khách
                   </h1>
                   <div
                     style={{

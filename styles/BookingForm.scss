@@ -133,7 +133,7 @@
             .form__swap-btn {
               position: absolute;
               top: calc(50% - 15px);
-              right: 4px;
+              right: 20px;
               font-size: 22px;
               border-radius: 50%;
               background-color: var(--color-primary);
@@ -232,9 +232,13 @@
     width: 340px;
   }
 
-  .booking__form-main > div:nth-child(2) {
-    width: 360px !important;
-    // height: 400px !important;
+  .booking__form-main {
+    padding-top: 2rem;
+
+    & > div:nth-child(2) {
+      width: 360px !important;
+      // height: 400px !important;
+    }
   }
 
   .booking__form-content {
@@ -248,6 +252,6 @@
 
 @media screen and (max-height: 700px) {
   .booking__form {
-    height: 760px !important;
+    height: 110vh !important;
   }
 }

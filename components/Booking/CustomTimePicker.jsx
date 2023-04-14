@@ -1,76 +1,62 @@
 import React, { useState, useRef } from "react";
 
-const TimePicker = ({ timePicker, setTimePicker }) => {
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTime, setSelectedTime] = useState("");
+const TimePicker = () => {
 
   const dateRef = useRef();
   const timeRef = useRef(null);
 
-  const handleDateChange = (event) => {
-    dateRef.current.type = "text";
-    dateRef.current.blur();
-    timeRef.current.type = "time";
-    timeRef.current.showPicker();
-
-    const date = new Date(event.target.value);
-    const formattedDate = `${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}`;
-    setSelectedDate(event.target.value);
-    setTimePicker({ date: formattedDate });
-  };
-
-  const handleTimeChange = (event) => {
-    // timeRef.current.blur();
-    setSelectedTime(event.target.value);
-    setTimePicker((prev) => ({ ...prev, time: event.target.value }));
-    // dateRef.current.style.display = "block";
-  };
-
   return (
     <>
-      <input
-        type="text"
-        ref={dateRef}
-        name="departure_date"
-        className="option__input"
-        value={timePicker?.date}
-        onChange={handleDateChange}
-        onFocus={() => {
-          dateRef.current.type = "date";
-          dateRef.current.valueAsDate = new Date();
-          dateRef.current.showPicker();
-        }}
-        placeholder="Thời gian đón"
-      />
-
       <div
         style={{
-          height: 20,
-          width: 1,
-          backgroundColor: "var(--color-grey)",
-          margin: "0 12px",
+          display: "flex",
+          fontSize: "12px",
+          fontFamily: "var(--font-alt)",
+          color: "var(--color-grey)",
+          marginBottom: "6px",
         }}
-      ></div>
+      >
+        <label
+          htmlFor="date_picker"
+          style={{ padding: "0 4px", flex: 1 }}
+        >
+          Ngày đón
+        </label>
+        <label
+          htmlFor="time_picker"
+          style={{ padding: "0 4px", flex: 1 }}
+        >
+          Giờ đón
+        </label>
+      </div>
+      <div className="form__input-item flex__center">
+        <input
+          type="date"
+          id="date_picker"
+          ref={dateRef}
+          name="departure_date"
+          className="option__input"
+          onClick={() => dateRef.current.showPicker()}
+        />
 
-      <input
-        id="time"
-        type="text"
-        ref={timeRef}
-        name="departure_time"
-        className="option__input"
-        value={selectedTime}
-        placeholder="Giờ đón"
-        onChange={handleTimeChange}
-        onFocus={() => {
-          const hour = new Date().getHours();
-          const min = new Date().getMinutes();
-          timeRef.current.type = "time";
-          timeRef.current.value = hour + ":" + min;
-          timeRef.current.showPicker();
-        }}
-      />
+        <div
+          style={{
+            height: 20,
+            width: 1,
+            backgroundColor: "var(--color-grey)",
+            margin: "0 12px",
+          }}
+        ></div>
+
+        <input
+          id="time_picker"
+          type="time"
+          ref={timeRef}
+          name="departure_time"
+          className="option__input"
+          onClick={() => timeRef.current.showPicker()}
+        />
+      </div>
     </>
   );
 };

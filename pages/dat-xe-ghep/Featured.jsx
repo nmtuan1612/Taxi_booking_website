@@ -20,14 +20,12 @@ const Featured = () => {
         <p>☎️ Hotline : 086 955 5598</p>
         <p>⏰ Xe chạy liên tục tất cả các ngày trong tuần</p>
 
-        <p>
-          ✅ Tần Suất Hoạt Động :gọi là có & lúc nào cũng có 30ph/ chuyến❣️❣️❣️
-        </p>
+        <p>✅ Tần Suất Hoạt Động: gọi là có & lúc nào cũng có 30ph/chuyến</p>
 
-        <p>✅ Nhà xe uy tín & an toàn, chu đáo …</p>
-        <p>✅ Đi Ghép Nhanh ? Chỉ Từ 200k - 250k(tuỳ điểm)</p>
-        <p>✅ Ưu Tiên Bao Xe ? Chỉ Từ 300k - 500k(tuỳ điểm)</p>
-        <p>✅ Nhận ???? Đồ hỏa tốc 100k - 150k</p>
+        <p>✅ Nhà xe uy tín & an toàn, chu đáo</p>
+        <p>✅ Đi Ghép Nhanh Chỉ Từ 200k - 250k(tuỳ điểm)</p>
+        <p>✅ Ưu Tiên Bao Xe Chỉ Từ 300k - 500k(tuỳ điểm)</p>
+        <p>✅ Nhận Đồ hỏa tốc 100k - 150k</p>
         <p>✅ Đặt Xe Nhanh – Luôn Sẵn Xe Phục Vụ</p>
         <p>* Đón và trả khách tận nơi *</p>
       </div>

@@ -21,8 +21,8 @@ import { NoiBaiInfo } from "../../pages/api/constant";
 
 // const key = "AIzaSyB4pAPBWaiRtjgAdi8qcboCqjI5hIjS-dQ";
 // const key = "AIzaSyC1AI_RVmR6014jXaOtGJbQalCHHaj7m_o";
-// const key = "AIzaSyCno8JIwvREk5pLjPSNAUJghYngxs18xec";
-const key = "AIzaSyAsS1cQogLlfLT9iGPwPmzd5HZ06ft0WUA";
+const key = "AIzaSyCno8JIwvREk5pLjPSNAUJghYngxs18xec";
+// const key = "AIzaSyAsS1cQogLlfLT9iGPwPmzd5HZ06ft0WUA";
 const libraries = ["places"];
 const containerStyle = {};
 
@@ -44,7 +44,7 @@ function MyComponent({ scrollDown }) {
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
   const [distance, setDistance] = useState({ text: "", value: 0 });
-  const [timePicker, setTimePicker] = useState({ date: "", time: "" });
+  // const [timePicker, setTimePicker] = useState({ date: "", time: "" });
   const [bookType, setBookType] = useState("xeduongdai");
 
   const { setBooking, setPriceData } = useContext(BookingContext);
@@ -132,34 +132,42 @@ function MyComponent({ scrollDown }) {
     e.preventDefault();
     let formData = new FormData(e.target);
     let formProps = Object.fromEntries(formData);
-    // console.log(formProps);
 
-    if (formProps.departure_date !== "" && formProps.departure_time !== "") {
-      // console.log(true);
+    if (
+      formProps.departure_date !== "" &&
+      formProps.departure_time !== "" &&
+      formProps.pickup_location != "" &&
+      formProps.drop_location != ""
+    ) {
       const currentDate = new Date().getDate();
-      const [day, month, year] = formProps.departure_date.split("/");
+      const [year, month, day] = formProps.departure_date.split("-");
       const [hours, minutes] = formProps.departure_time.split(":");
       const departureDate = new Date(year, month, day, 0, 0, 0).getDate();
       const minutesDifference = parseInt(minutes) - new Date().getMinutes();
+      const departure_date = `${day}/${month}/${year}`;
 
       if (departureDate > currentDate) {
+        console.log(true);
         localStorage.setItem(
           "taxi_booking",
           JSON.stringify({
             ...formProps,
             distance: distance,
             booking_type: bookType,
+            departure_date,
           })
         );
         setBooking({
           ...formProps,
           distance: distance,
           booking_type: bookType,
+          departure_date,
         });
         const prices = getPrices({
           ...formProps,
           distance: distance,
           booking_type: bookType,
+          departure_date,
         });
         setPriceData(prices);
         scrollDown();
@@ -175,17 +183,20 @@ function MyComponent({ scrollDown }) {
               ...formProps,
               distance: distance,
               booking_type: bookType,
+              departure_date,
             })
           );
           setBooking({
             ...formProps,
             distance: distance,
             booking_type: bookType,
+            departure_date,
           });
           const prices = getPrices({
             ...formProps,
             distance: distance,
             booking_type: bookType,
+            departure_date,
           });
           setPriceData(prices);
           scrollDown();
@@ -199,11 +210,6 @@ function MyComponent({ scrollDown }) {
     } else {
       window.alert("Vui lòng điền đầy đủ thông tin");
     }
-    console.log({
-      ...formProps,
-      distance: distance,
-      booking_type: bookType,
-    });
     // sendMessage({...formProps, distance: distance});
   };
 
@@ -291,7 +297,10 @@ function MyComponent({ scrollDown }) {
               }}
             />
 
-            <div className="form__input-group booking__options">
+            <div
+              className="form__input-group booking__options"
+              style={{ marginBottom: "6px" }}
+            >
               <div
                 className="form__input-item flex__center"
                 style={{
@@ -337,14 +346,7 @@ function MyComponent({ scrollDown }) {
               </div>
             </div>
             <div className="form__input-group">
-              <div className="form__input-item flex__center">
-                {/* <label htmlFor="departure__input">Chọn giờ đón</label>
-                        <input type="datetime-local" name="" id="departure__input" style={{ flex:1 }} lang="vi" /> */}
-                <CustomTimePicker
-                  timePicker={timePicker}
-                  setTimePicker={setTimePicker}
-                />
-              </div>
+              <CustomTimePicker />
             </div>
 
             <div className="flex__center">

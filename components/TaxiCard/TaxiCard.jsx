@@ -18,7 +18,7 @@ const TaxiCard = ({ data }) => {
       car_option,
       price,
     }));
-    router.replace("/checkout");
+    router.replace("/checkout", "xac-nhan-dat-xe");
   };
 
   return (
@@ -165,13 +165,16 @@ const TaxiCard = ({ data }) => {
                 top: "2px",
               }}
             />{" "}
-            Giá trên đã bao gồm phí cao tốc, phí ra vào SB
+            Giá trên chưa bao gồm phí cao tốc
           </h6>
         </div>
         <div className={styles["info__bottom-mobile-btn"]}>
-          <Link href="/checkout">
-            <button className="button__base">Đặt xe ngay</button>
-          </Link>
+          <button
+            className="button__base"
+            onClick={() => handleSelectCar(data?.newPrice, data?.people)}
+          >
+            Đặt xe ngay
+          </button>
         </div>
       </div>
     </div>

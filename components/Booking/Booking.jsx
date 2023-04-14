@@ -40,8 +40,8 @@ const Booking = ({ title, noQuote }) => {
                 ""
               )}
               <h5 className="flex__center">
-                <AiOutlineCheck style={{ marginRight: 8 }} /> Giá trọn gói,
-                không phát sinh
+                <AiOutlineCheck style={{ marginRight: 8 }} /> Sang trọng, lịch
+                sự
               </h5>
             </div>
             <BookingForm scrollDown={scrollDown} />
