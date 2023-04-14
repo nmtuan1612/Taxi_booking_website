@@ -76,7 +76,18 @@ const DatXeGhep = () => {
     e.preventDefault();
     let formData = new FormData(e.target);
     let formProps = Object.fromEntries(formData);
-    console.log(formProps);
+    let price = "200.00 đ";
+
+    if (formProps.car_option === "2") {
+      price = "350.000 đ";
+      formProps.car_option = "ghép 2";
+    } else if (formProps.car_option === "3") {
+      price = "450.000 đ";
+      formProps.car_option = "ghép 3";
+    } else if (formProps.car_option === "all") {
+      price = "500.000 đ";
+      formProps.car_option = "bao hết";
+    }
 
     if (formProps.departure_date !== "" && formProps.departure_time !== "") {
       console.log(true);
@@ -89,14 +100,16 @@ const DatXeGhep = () => {
       if (departureDate > currentDate) {
         localStorage.setItem(
           "taxi_booking",
-          JSON.stringify((prev) => ({
-            ...prev,
+          JSON.stringify({
+            ...booking,
             ...formProps,
-          }))
+            price,
+          })
         );
         setBooking((prev) => ({
           ...prev,
           ...formProps,
+          price,
         }));
 
         router.replace("/checkout", "xac-nhan-dat-xe");
@@ -111,16 +124,16 @@ const DatXeGhep = () => {
             JSON.stringify({
               ...booking,
               ...formProps,
-              price: "200.000 đ",
+              price,
             })
           );
           setBooking((prev) => ({
             ...prev,
             ...formProps,
-            price: "200.000 đ",
+            price,
           }));
 
-          router.replace("/chec", "xac-nhan-dat-xe");
+          router.replace("/checkout", "xac-nhan-dat-xe");
         } else {
           window.alert(
             "Thời gian khởi hành phải lớn hơn thời gian hiện tại 15 phút"
@@ -341,10 +354,10 @@ const DatXeGhep = () => {
                               name="car_option"
                               className="option__input"
                             >
-                              <option value="ghép 1">1 người</option>
-                              <option value="ghép 2">2 người</option>
-                              <option value="ghép 3">3 người</option>
-                              <option value="bao hết">bao xe</option>
+                              <option value="1">1 người</option>
+                              <option value="2">2 người</option>
+                              <option value="3">3 người</option>
+                              <option value="all">bao xe</option>
                             </select>
                             <BiChevronDown className="option__input-icon" />
                           </div>

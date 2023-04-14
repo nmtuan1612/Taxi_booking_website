@@ -61,7 +61,11 @@ export const getPrices = (formData = form) => {
   }
 
   if (0 < parseInt(hours, 10) && parseInt(hours, 10) < 8) {
-    price = price + 10000;
+    price = price + 20000;
+  }
+
+  if (formData.direction_option === "2") {
+    price = price * 1.8;
   }
 
   const priceData = cars.map((car) => {

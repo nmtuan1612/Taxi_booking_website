@@ -81,17 +81,18 @@ function MyComponent({ scrollDown }) {
 
   const onDestinationPlacesChanged = () => {
     const place = destinationSearchBox.getPlaces()[0];
-    setBookType((prev) =>
-      prev === "xedisanbay" ? "xesanbayve" : "xedisanbay"
-    );
     computeDistance(origin, place);
     setDestination(place);
   };
+  console.log(bookType);
 
   const handleSwapSchedule = () => {
     const tempText = originInputRef.current.value || "";
     originInputRef.current.value = destinationInputRef.current.value || "";
     destinationInputRef.current.value = tempText;
+    setBookType((prev) =>
+      prev === "xedisanbay" ? "xesanbayve" : "xedisanbay"
+    );
 
     const tempLocation = origin;
     setOrigin(destination);
@@ -198,6 +199,11 @@ function MyComponent({ scrollDown }) {
     } else {
       window.alert("Vui lòng điền đầy đủ thông tin");
     }
+    console.log({
+      ...formProps,
+      distance: distance,
+      booking_type: bookType,
+    });
     // sendMessage({...formProps, distance: distance});
   };
 
