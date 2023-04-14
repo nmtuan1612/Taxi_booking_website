@@ -19,10 +19,7 @@ import { BookingContext } from "../../pages/api/store";
 import { getPrices } from "../../pages/api/generateData";
 import { NoiBaiInfo } from "../../pages/api/constant";
 
-// const key = "AIzaSyB4pAPBWaiRtjgAdi8qcboCqjI5hIjS-dQ";
-// const key = "AIzaSyC1AI_RVmR6014jXaOtGJbQalCHHaj7m_o";
-const key = "AIzaSyCno8JIwvREk5pLjPSNAUJghYngxs18xec";
-// const key = "AIzaSyAsS1cQogLlfLT9iGPwPmzd5HZ06ft0WUA";
+const key = "AIzaSyAsS1cQogLlfLT9iGPwPmzd5HZ06ft0WUA";
 const libraries = ["places"];
 const containerStyle = {};
 
