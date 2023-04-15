@@ -21,7 +21,7 @@ const Footer = () => {
             </div>
             <div className="address__item">
               <BsFillTelephoneFill style={{ marginRight: 4 }} /> Điện thoại :
-              086 955 5598
+              0869 5555 98
             </div>
             <div className="address__item">
               <AiOutlineMail

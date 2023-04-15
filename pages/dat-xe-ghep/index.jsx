@@ -397,9 +397,9 @@ const DatXeGhep = () => {
                   </div>
                 </GoogleMap>
               </div>
-              {/* <div className="scroll-down__arrow" onClick={scrollDown}>
+              <div className="scroll-down__arrow" onClick={scrollDown}>
                 <MdKeyboardDoubleArrowDown />
-              </div> */}
+              </div>
             </div>
             {/* </GoogleMap> */}
           </div>

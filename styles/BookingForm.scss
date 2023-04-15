@@ -23,6 +23,7 @@
       width: 100%;
       flex-direction: column;
       gap: 40px;
+      justify-content: flex-start;
 
       & > div:nth-child(2) {
         width: 940px;

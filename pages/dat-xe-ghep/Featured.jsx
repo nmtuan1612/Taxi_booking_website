@@ -17,7 +17,7 @@ const Featured = () => {
       </div>
       <div className={`${style.featured__right}`} style={{ padding: "2rem" }}>
         <h3>Chuyên tuyến BẮC GIANG – BẮC NINH – HÀ NỘI và ngược lại !</h3>
-        <p>☎️ Hotline : 086 955 5598</p>
+        <p>☎️ Hotline : 0869 5555 98</p>
         <p>⏰ Xe chạy liên tục tất cả các ngày trong tuần</p>
 
         <p>✅ Tần Suất Hoạt Động: gọi là có & lúc nào cũng có 30ph/chuyến</p>

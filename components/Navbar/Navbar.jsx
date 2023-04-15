@@ -1,16 +1,14 @@
-import React, { useContext, useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { AiOutlineClose, AiOutlinePhone } from "react-icons/ai";
-import logoImg from "../../public/images/logo.png";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import { BookingContext } from "../../pages/api/store";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { AiOutlinePhone } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
+import logoImg from "../../public/images/logo.png";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const router = useRouter();
-  const { booking, setBooking } = useContext(BookingContext);
 
   return (
     <nav className="app__navbar">
@@ -44,9 +42,9 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="app__navbar-hotline p__opensans">
-          <Link href="tel:086 955 5598" className="button__base">
+          <Link href="tel:0869555598" className="button__base">
             <AiOutlinePhone fontSize={24} className="hotline__icon" />
-            HOTLINE: 086 955 5598
+            HOTLINE: 0869 5555 98
           </Link>
         </div>
       </div>
@@ -67,11 +65,6 @@ const Navbar = () => {
         />
         {toggleMenu && (
           <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
-            {/* <AiOutlineClose
-              fontSize={27}
-              className="overlay__close"
-              onClick={() => setToggleMenu(false)}
-            /> */}
             <ul className="app__navbar-smallscreen_links">
               {/* <li className="">
                 <Link href="/">Trang chủ</Link>
@@ -96,9 +89,9 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="app__navbar-hotline">
-              <a href="tel:086 955 5598" className="button__base">
+              <a href="tel:0869555598" className="button__base">
                 <AiOutlinePhone fontSize={24} className="hotline__icon" />
-                HOTLINE: 086 955 5598
+                HOTLINE: 0869 5555 98
               </a>
             </div>
           </div>

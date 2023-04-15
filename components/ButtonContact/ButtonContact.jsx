@@ -30,7 +30,7 @@ const ButtonContact = () => {
         <div className="icon__vr">
           <div className="circle__filled">
             <div className="image__circle">
-              <a href="tel:+0869555598">
+              <a href="tel:0869555598">
                 <Image src={callImg} alt="icon" />
               </a>
             </div>
