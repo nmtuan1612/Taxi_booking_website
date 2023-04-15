@@ -6,20 +6,15 @@ import {
 import { useRouter } from "next/router";
 import React, { useContext, useRef, useState } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
-import { MdOutlineSyncAlt } from "react-icons/md";
 import {
   BsFillArrowRightCircleFill,
-  BsFillGeoFill,
   BsFillGeoAltFill,
+  BsFillGeoFill,
 } from "react-icons/bs";
-import { MdKeyboardDoubleArrowDown } from "react-icons/md";
-import AboutUs from "../../components/AboutUs/AboutUs";
-// import { getPrices } from "../../pages/api/generateData";
-// import { BookingContext } from "../../pages/api/store";
-import { BiChevronDown, BiX, BiCar } from "react-icons/bi";
+import { MdKeyboardDoubleArrowDown, MdOutlineSyncAlt } from "react-icons/md";
+import { BiCar, BiChevronDown, BiX } from "react-icons/bi";
 import CustomTimePicker from "../../components/Booking/CustomTimePicker";
 import { BookingContext } from "../api/store";
-import Featured from "./Featured";
 
 const key = "AIzaSyAsS1cQogLlfLT9iGPwPmzd5HZ06ft0WUA";
 const libraries = ["places"];
@@ -43,7 +38,6 @@ const DatXeGhep = () => {
   const [originSearchBox, setOriginSearchBox] = useState(null);
 
   const [origin, setOrigin] = useState(null);
-  const [timePicker, setTimePicker] = useState({ date: "", time: "" });
   const [reverseDirection, setReverseDirection] = useState(false);
 
   const { booking, setBooking } = useContext(BookingContext);
@@ -69,14 +63,16 @@ const DatXeGhep = () => {
 
   const onOriginPlacesChanged = () => {
     const place = originSearchBox.getPlaces()[0];
-    setOrigin(place);
+    if (place) {
+      setOrigin(place);
+    }
   };
 
   const handleSelectSchedule = (e) => {
     e.preventDefault();
     let formData = new FormData(e.target);
     let formProps = Object.fromEntries(formData);
-    let price = "200.00 đ";
+    let price = "200.000 đ";
 
     if (formProps.car_option === "2") {
       price = "350.000 đ";
@@ -90,12 +86,12 @@ const DatXeGhep = () => {
     }
 
     if (formProps.departure_date !== "" && formProps.departure_time !== "") {
-      console.log(true);
       const currentDate = new Date().getDate();
-      const [day, month, year] = formProps.departure_date.split("/");
+      const [year, month, day] = formProps.departure_date.split("-");
       const [hours, minutes] = formProps.departure_time.split(":");
       const departureDate = new Date(year, month, day, 0, 0, 0).getDate();
       const minutesDifference = parseInt(minutes) - new Date().getMinutes();
+      const departure_date = `${day}/${month}/${year}`;
 
       if (departureDate > currentDate) {
         localStorage.setItem(
@@ -104,12 +100,14 @@ const DatXeGhep = () => {
             ...booking,
             ...formProps,
             price,
+            departure_date,
           })
         );
         setBooking((prev) => ({
           ...prev,
           ...formProps,
           price,
+          departure_date,
         }));
 
         router.replace("/checkout", "xac-nhan-dat-xe");
@@ -125,12 +123,14 @@ const DatXeGhep = () => {
               ...booking,
               ...formProps,
               price,
+              departure_date,
             })
           );
           setBooking((prev) => ({
             ...prev,
             ...formProps,
             price,
+            departure_date,
           }));
 
           router.replace("/checkout", "xac-nhan-dat-xe");
@@ -209,6 +209,10 @@ const DatXeGhep = () => {
                                 </option>
                                 <option value="Thành phố Bắc Giang">
                                   Thành phố Bắc Giang
+                                </option>
+                                <option value="45 Thân Nhân Vũ, phường Ngô Quyền, TP Bắc Giang">
+                                  45 Thân Nhân Vũ, phường Ngô Quyền, TP Bắc
+                                  Giang
                                 </option>
                               </select>
                               <BiChevronDown className="option__input-icon" />
@@ -313,6 +317,10 @@ const DatXeGhep = () => {
                                 <option value="Thành phố Bắc Giang">
                                   Thành phố Bắc Giang
                                 </option>
+                                <option value="45 Thân Nhân Vũ, phường Ngô Quyền, TP Bắc Giang">
+                                  45 Thân Nhân Vũ, phường Ngô Quyền, TP Bắc
+                                  Giang
+                                </option>
                               </select>
                               <BiChevronDown className="option__input-icon" />
                             </div>
@@ -329,15 +337,17 @@ const DatXeGhep = () => {
 
                         {/* Select car */}
                         <div className="form__input-group" style={{}}>
-                          <h4
+                          <label
+                            htmlFor="compose-input"
                             style={{
+                              fontSize: "12px",
                               fontFamily: "var(--font-alt)",
-                              fontWeight: "500",
-                              marginBottom: "10px",
+                              color: "var(--color-grey)",
+                              marginBottom: "6px",
                             }}
                           >
                             Chọn loại ghép
-                          </h4>
+                          </label>
                           <div
                             className="form__input-item flex__center"
                             style={{
@@ -351,6 +361,7 @@ const DatXeGhep = () => {
                             <select
                               defaultValue="1"
                               name="car_option"
+                              id="compose-input"
                               className="option__input"
                             >
                               <option value="1">1 người</option>
@@ -363,12 +374,7 @@ const DatXeGhep = () => {
                         </div>
 
                         <div className="form__input-group">
-                          <div className="form__input-item flex__center">
-                            <CustomTimePicker
-                              timePicker={timePicker}
-                              setTimePicker={setTimePicker}
-                            />
-                          </div>
+                          <CustomTimePicker />
                         </div>
 
                         <div className="flex__center">
