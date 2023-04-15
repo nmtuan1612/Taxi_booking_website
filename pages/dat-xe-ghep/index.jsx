@@ -72,17 +72,19 @@ const DatXeGhep = () => {
     e.preventDefault();
     let formData = new FormData(e.target);
     let formProps = Object.fromEntries(formData);
+    const booking_type = "xeghep";
+    let car_option = "ghép 1";
     let price = "200.000 đ";
 
     if (formProps.car_option === "2") {
       price = "350.000 đ";
-      formProps.car_option = "ghép 2";
+      car_option = "ghép 2";
     } else if (formProps.car_option === "3") {
       price = "450.000 đ";
-      formProps.car_option = "ghép 3";
+      car_option = "ghép 3";
     } else if (formProps.car_option === "all") {
       price = "500.000 đ";
-      formProps.car_option = "bao hết";
+      car_option = "bao hết";
     }
 
     if (formProps.departure_date !== "" && formProps.departure_time !== "") {
@@ -101,6 +103,8 @@ const DatXeGhep = () => {
             ...formProps,
             price,
             departure_date,
+            car_option,
+            booking_type,
           })
         );
         setBooking((prev) => ({
@@ -108,6 +112,8 @@ const DatXeGhep = () => {
           ...formProps,
           price,
           departure_date,
+          car_option,
+          booking_type,
         }));
 
         router.replace("/checkout", "xac-nhan-dat-xe");
@@ -124,6 +130,8 @@ const DatXeGhep = () => {
               ...formProps,
               price,
               departure_date,
+              car_option,
+              booking_type,
             })
           );
           setBooking((prev) => ({
@@ -131,6 +139,8 @@ const DatXeGhep = () => {
             ...formProps,
             price,
             departure_date,
+            car_option,
+            booking_type,
           }));
 
           router.replace("/checkout", "xac-nhan-dat-xe");

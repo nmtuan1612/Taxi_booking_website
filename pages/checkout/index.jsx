@@ -70,7 +70,8 @@ const CheckoutPage = () => {
                 top: "2px",
               }}
             />{" "}
-            Giá trên chưa bao gồm phí cao tốc
+            Giá trên {data?.booking_type === "xeghep" ? "đã" : "chưa"} bao gồm
+            phí cao tốc
           </div>
         </div>
 
