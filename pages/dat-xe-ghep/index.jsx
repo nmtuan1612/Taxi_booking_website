@@ -220,10 +220,6 @@ const DatXeGhep = () => {
                                 <option value="Thành phố Bắc Giang">
                                   Thành phố Bắc Giang
                                 </option>
-                                <option value="45 Thân Nhân Vũ, phường Ngô Quyền, TP Bắc Giang">
-                                  45 Thân Nhân Vũ, phường Ngô Quyền, TP Bắc
-                                  Giang
-                                </option>
                               </select>
                               <BiChevronDown className="option__input-icon" />
                             </div>
@@ -326,10 +322,6 @@ const DatXeGhep = () => {
                                 </option>
                                 <option value="Thành phố Bắc Giang">
                                   Thành phố Bắc Giang
-                                </option>
-                                <option value="45 Thân Nhân Vũ, phường Ngô Quyền, TP Bắc Giang">
-                                  45 Thân Nhân Vũ, phường Ngô Quyền, TP Bắc
-                                  Giang
                                 </option>
                               </select>
                               <BiChevronDown className="option__input-icon" />

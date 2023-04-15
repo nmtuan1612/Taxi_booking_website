@@ -6,6 +6,7 @@ import Image from "next/image";
 import { BsFillGeoAltFill, BsFillTelephoneFill } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -15,8 +16,8 @@ const Footer = () => {
           <Image src={logoImg} alt="app-logo" priority />
           <div className="address">
             <div className="address__item">
-              <BsFillGeoAltFill style={{ marginRight: 4 }} /> Địa chỉ: 89 đường
-              Phùng Hưng, Phường Phúc La, quận Từ Liêm, TP Hà Nội
+              <BsFillGeoAltFill style={{ marginRight: 4 }} /> Địa chỉ: 45 đường
+              Thân Nhân Vũ, phường Ngô Quyền, TP Bắc Giang
             </div>
             <div className="address__item">
               <BsFillTelephoneFill style={{ marginRight: 4 }} /> Điện thoại :
@@ -34,16 +35,24 @@ const Footer = () => {
         <div className="services">
           <h3>Dịch vụ</h3>
           <div className="services__list">
-            <h4 className="flex__align-center" style={{ padding: "8px 0" }}>
-              <FaLongArrowAltRight style={{ margin: "0 6px" }} /> Đặt xe sân bay
-            </h4>
-            <h4 className="flex__align-center" style={{ padding: "8px 0" }}>
-              <FaLongArrowAltRight style={{ margin: "0 6px" }} /> Đặt xe ghép
-            </h4>
-            <h4 className="flex__align-center" style={{ padding: "8px 0" }}>
-              <FaLongArrowAltRight style={{ margin: "0 6px" }} /> Đặt xe đường
-              dài
-            </h4>
+            <Link href="/dat-xe-san-bay">
+              <h4 className="flex__align-center" style={{ padding: "8px 0" }}>
+                <FaLongArrowAltRight style={{ margin: "0 6px" }} /> Đặt xe sân
+                bay
+              </h4>
+            </Link>
+            <Link href="/dat-xe-ghep">
+              <h4 className="flex__align-center" style={{ padding: "8px 0" }}>
+                <FaLongArrowAltRight style={{ margin: "0 6px" }} /> Đặt xe ghép
+                Bắc Ninh, Bắc Giang
+              </h4>
+            </Link>
+            <Link href="/">
+              <h4 className="flex__align-center" style={{ padding: "8px 0" }}>
+                <FaLongArrowAltRight style={{ margin: "0 6px" }} /> Đặt xe đường
+                dài
+              </h4>
+            </Link>
           </div>
         </div>
       </div>
