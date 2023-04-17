@@ -3,15 +3,11 @@
 }
 
 .booking__form {
-  height: 90vh;
+  min-height: 750px;
   width: 100%;
 
   .booking__form-wrap {
     position: relative;
-    // top: 0;
-    // right: 0;
-    // left: 0;
-    // bottom: 0;
     width: 100%;
     height: 100%;
     background: url("../public/images/booking-bg.png") no-repeat 0px 0px;
@@ -26,8 +22,9 @@
       justify-content: flex-start;
 
       & > div:nth-child(2) {
-        width: 940px;
-        height: 400px;
+        min-width: 540px;
+        max-width: 940px;
+        height: 440px;
         position: relative;
         border-radius: var(--border-radius);
       }
@@ -103,8 +100,9 @@
 
               .booking__input {
                 flex: 1;
+                position: relative;
                 input {
-                  width: 90%;
+                  width: 94%;
                   box-sizing: border-box;
                   border: 1px solid transparent;
                   // width: 300px;
@@ -139,6 +137,7 @@
               border-radius: 50%;
               background-color: var(--color-primary);
               padding: 4px;
+              z-index: 10;
               color: var(--color-white);
               cursor: pointer;
 
@@ -226,7 +225,7 @@
   }
 
   .booking__form {
-    height: 90vh !important;
+    // height: 90vh !important;
   }
 
   .form__input-group {
@@ -238,6 +237,7 @@
 
     & > div:nth-child(2) {
       width: 360px !important;
+      min-width: 100% !important;
       // height: 400px !important;
     }
   }
@@ -253,6 +253,6 @@
 
 @media screen and (max-height: 700px) {
   .booking__form {
-    height: 110vh !important;
+    // height: 110vh !important;
   }
 }

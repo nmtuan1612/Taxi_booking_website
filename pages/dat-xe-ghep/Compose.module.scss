@@ -1,3 +1,18 @@
+.compose__page {
+  .booking__form {
+    .booking__form-wrap {
+      & .booking__form-main {
+        & > div:nth-child(2) {
+          width: 540px !important;
+          height: 440px;
+          position: relative;
+          border-radius: var(--border-radius);
+        }
+      }
+    }
+  }
+}
+
 .featured {
   display: grid;
   padding: 0 3rem;

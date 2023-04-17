@@ -1,15 +1,29 @@
+import axios from "axios";
+import { useState } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
-import SearchForm from "../SearchForm/SearchForm";
-import ListTaxiCard from "../TaxiCard/ListTaxiCard";
+import SearchForm from "../../components/SearchForm/SearchForm";
+function MapWithSearch({ title }) {
+  const [query, setQuery] = useState("");
+  const [result, setResult] = useState(null);
 
-const Booking = ({ title, noQuote }) => {
   const scrollDown = () => {
     window.scroll({
       top: 400,
       behavior: "smooth",
     });
   };
+
+  async function handleSearch(e) {
+    e.preventDefault();
+
+    const url = `https://places.goong.io/v3/places/text?text=${query}&api_key=imXyU1qZz8kS3nHiMDhLnhmywrmhWmTv1Y5D5nbH`;
+
+    const response = await axios.get(url);
+    setResult(response.data);
+  }
+
+  console.log(result);
 
   return (
     <div className="home__booking">
@@ -28,22 +42,14 @@ const Booking = ({ title, noQuote }) => {
                   margin: "16px 0",
                 }}
               />
-              {!noQuote ? (
-                <>
-                  <h5 className="flex__center">
-                    <AiOutlineCheck style={{ marginRight: 8 }} /> An toàn, Đúng
-                    hẹn
-                  </h5>
-                </>
-              ) : (
-                ""
-              )}
               <h5 className="flex__center">
-                <AiOutlineCheck style={{ marginRight: 8 }} /> Sang trọng, lịch
-                sự
+                <AiOutlineCheck style={{ marginRight: 8 }} /> An toàn, Đúng hẹn
+              </h5>
+              <h5 className="flex__center">
+                <AiOutlineCheck style={{ marginRight: 8 }} /> Giá trọn gói,
+                không phát sinh
               </h5>
             </div>
-            {/* <BookingForm scrollDown={scrollDown} /> */}
             <SearchForm scrollDown={scrollDown} />
           </div>
           <div className="scroll-down__arrow" onClick={scrollDown}>
@@ -52,9 +58,8 @@ const Booking = ({ title, noQuote }) => {
         </div>
         {/* </GoogleMap> */}
       </div>
-      <ListTaxiCard />
     </div>
   );
-};
+}
 
-export default Booking;
+export default MapWithSearch;

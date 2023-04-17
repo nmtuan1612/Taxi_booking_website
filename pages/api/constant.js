@@ -53,8 +53,8 @@ export const cars = [
 export const NoiBaiInfo = {
   geometry: {
     location: {
-      lat: () => "21.2187149",
-      lng: () => "105.8041709",
+      lat: "21.2187149",
+      lng: "105.8041709",
     },
   },
 };

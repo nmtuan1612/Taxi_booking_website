@@ -8,6 +8,7 @@ import {
   TI_LE_GIAM,
   cars,
 } from "./constant";
+import axios from "axios";
 
 const form = {
   booking_type: "xeduongdai",
@@ -89,4 +90,24 @@ export const getPrices = (formData = form) => {
   });
 
   return priceData;
+};
+
+export const getPlaces = async (keyword) => {
+  const input = keyword.replaceAll(" ", "%20");
+  const url = `https://rsapi.goong.io/Place/AutoComplete?api_key=${process.env.NEXT_PUBLIC_GOONG_MAPS_API_KEY}&location=21.013715429594125,%20105.79829597455202&input=${input}`;
+
+  const { data } = await axios.get(url);
+  return data;
+};
+
+export const getPlaceInfo = async (id) => {
+  const url = `https://rsapi.goong.io/Place/Detail?place_id=${id}&api_key=${process.env.NEXT_PUBLIC_GOONG_MAPS_API_KEY}`;
+  const { data } = await axios.get(url);
+  return data;
+};
+
+export const getDistance = async (origin, destination) => {
+  const url = `https://rsapi.goong.io/DistanceMatrix?origins=${origin}&destinations=${destination}&vehicle=car&api_key=${process.env.NEXT_PUBLIC_GOONG_MAPS_API_KEY}`;
+  const { data } = await axios.get(url);
+  return data;
 };
