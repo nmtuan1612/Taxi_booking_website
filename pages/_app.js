@@ -7,7 +7,7 @@ import "../styles/Footer.scss";
 import Head from "next/head";
 import Layout from "../components/Layout/Layout";
 import { BookingContextProvider } from "./api/store";
-
+import NextNProgress from "nextjs-progressbar";
 export default function App({ Component, pageProps }) {
   return (
     <>
@@ -23,6 +23,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <BookingContextProvider>
         <Layout>
+          <NextNProgress />
           <Component {...pageProps} />
         </Layout>
       </BookingContextProvider>
