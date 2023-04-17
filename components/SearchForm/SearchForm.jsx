@@ -77,7 +77,7 @@ function MyComponent({ scrollDown }) {
     typeTimeoutRef.current = setTimeout(async () => {
       const { predictions } = await getPlaces(value);
       setPlaces(predictions);
-    }, 300);
+    }, 1200);
     // startTransition(async () => {
     //   const { predictions } = await getPlaces(e.target.value);
     //   setPlaces(predictions);
@@ -92,7 +92,7 @@ function MyComponent({ scrollDown }) {
     typeTimeoutRef.current = setTimeout(async () => {
       const { predictions } = await getPlaces(value);
       setPlaces(predictions);
-    }, 300);
+    }, 1200);
   };
 
   const handleSwapSchedule = () => {

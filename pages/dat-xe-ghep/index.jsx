@@ -55,7 +55,7 @@ const DatXeGhep = () => {
     typeTimeoutRef.current = setTimeout(async () => {
       const { predictions } = await getPlaces(value);
       setPlaces(predictions);
-    }, 300);
+    }, 1200);
   };
 
   const handleSelectSchedule = (e) => {
