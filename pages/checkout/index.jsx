@@ -28,10 +28,16 @@ const CheckoutPage = () => {
     let formData = new FormData(e.target);
     let formProps = Object.fromEntries(formData);
 
-    const bookingInfo = { ...booking, ...formProps };
-
-    sendMessage(bookingInfo);
-    router.replace("/book-success", "dat-xe-thanh-cong");
+    if (
+      formProps?.phonenumber?.trim() === "" ||
+      formProps?.fullName?.trim() === ""
+    ) {
+      alert("Vui lòng điền đầy đủ thông tin Tên , Số điện thoại");
+    } else {
+      const bookingInfo = { ...booking, ...formProps };
+      sendMessage(bookingInfo);
+      router.replace("/book-success", "dat-xe-thanh-cong");
+    }
   };
 
   return (
@@ -87,6 +93,7 @@ const CheckoutPage = () => {
               </label>
               <input
                 type="text"
+                required
                 className="c__input"
                 name="fullName"
                 id="c_name"
@@ -98,9 +105,11 @@ const CheckoutPage = () => {
               </label>
               <input
                 type="text"
+                required
                 className="c__input"
                 name="phonenumber"
                 id="c_phone"
+                title="Vui lòng điền Số điện thoại"
               />
             </div>
             <div className="c__form-input">

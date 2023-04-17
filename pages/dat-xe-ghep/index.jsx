@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 import { BiCar, BiChevronDown, BiX } from "react-icons/bi";
 import {
@@ -12,10 +12,9 @@ import CustomTimePicker from "../../components/Booking/CustomTimePicker";
 import PlacesList from "../../components/SearchForm/PlacesList";
 import { BookingContext } from "../api/store";
 import style from "./Compose.module.scss";
+import { getPlaces } from "../api/generateData";
 
 const DatXeGhep = () => {
-  const [originSearchBox, setOriginSearchBox] = useState(null);
-
   const [origin, setOrigin] = useState(null);
   const [reverseDirection, setReverseDirection] = useState(false);
   const [places, setPlaces] = useState([]);
@@ -23,8 +22,23 @@ const DatXeGhep = () => {
   const { booking, setBooking } = useContext(BookingContext);
 
   const originInputRef = useRef();
+  const typeTimeoutRef = useRef();
 
   const router = useRouter();
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (e.target.id !== "origin_search_result") {
+        document.getElementById("origin_search_result").style.display = "none";
+      }
+      if (e.target.id === "origin_input") {
+        const list = document.getElementById("origin_search_result");
+        if (list) list.style.display = "block";
+      }
+    };
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  }, []);
 
   const scrollDown = () => {
     window.scroll({
@@ -34,10 +48,14 @@ const DatXeGhep = () => {
   };
 
   const onOriginPlacesChanged = (e) => {
-    startTransition(async () => {
-      const { predictions } = await getPlaces(e.target.value);
+    const value = e.target.value;
+    if (typeTimeoutRef.current) {
+      clearTimeout(typeTimeoutRef.current);
+    }
+    typeTimeoutRef.current = setTimeout(async () => {
+      const { predictions } = await getPlaces(value);
       setPlaces(predictions);
-    });
+    }, 300);
   };
 
   const handleSelectSchedule = (e) => {
