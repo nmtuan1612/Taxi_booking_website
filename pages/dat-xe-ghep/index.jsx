@@ -55,7 +55,7 @@ const DatXeGhep = () => {
     typeTimeoutRef.current = setTimeout(async () => {
       const { predictions } = await getPlaces(value);
       setPlaces(predictions);
-    }, 1200);
+    }, 300);
   };
 
   const handleSelectSchedule = (e) => {
@@ -67,7 +67,7 @@ const DatXeGhep = () => {
     let price = "200.000 đ";
 
     if (formProps.car_option === "2") {
-      price = "350.000 đ";
+      price = "400.000 đ";
       car_option = "ghép 2";
     } else if (formProps.car_option === "3") {
       price = "450.000 đ";
