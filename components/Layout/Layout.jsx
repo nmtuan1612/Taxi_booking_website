@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import ButtonContact from "../ButtonContact/ButtonContact";
 import AboutUs from "../AboutUs/AboutUs";
-import Featured from "../../pages/dat-xe-ghep/Featured";
+import Featured from "../../pages/dat-xe-ghep-bac-giang-bac-ninh-ha-noi/Featured";
 import { useRouter } from "next/router";
 
 const Layout = ({ children }) => {

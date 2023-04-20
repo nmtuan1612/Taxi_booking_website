@@ -31,7 +31,10 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="p__opensans">
-            <Link href="/dat-xe-ghep" onClick={() => setToggleMenu(false)}>
+            <Link
+              href="/dat-xe-ghep-bac-giang-bac-ninh-ha-noi"
+              onClick={() => setToggleMenu(false)}
+            >
               <h4>Đặt xe ghép Bắc Ninh, Bắc Giang</h4>
             </Link>
           </li>
@@ -78,7 +81,10 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="p__opensans">
-                <Link href="/dat-xe-ghep" onClick={() => setToggleMenu(false)}>
+                <Link
+                  href="/dat-xe-ghep-bac-giang-bac-ninh-ha-noi"
+                  onClick={() => setToggleMenu(false)}
+                >
                   <h4>Đặt xe ghép Bắc Ninh, Bắc Giang</h4>
                 </Link>
               </li>

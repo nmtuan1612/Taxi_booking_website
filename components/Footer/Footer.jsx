@@ -41,7 +41,7 @@ const Footer = () => {
                 bay
               </h4>
             </Link>
-            <Link href="/dat-xe-ghep">
+            <Link href="/dat-xe-ghep-bac-giang-bac-ninh-ha-noi">
               <h4 className="flex__align-center" style={{ padding: "8px 0" }}>
                 <FaLongArrowAltRight style={{ margin: "0 6px" }} /> Đặt xe ghép
                 Bắc Ninh, Bắc Giang
