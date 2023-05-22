@@ -342,8 +342,8 @@ function MyComponent({ scrollDown }) {
                 {/* <option value="xe ghép">Xe ghép</option> */}
                 <option value="4">Xe 4 chỗ</option>
                 <option value="7">Xe 7 chỗ</option>
-                <option value="16">Xe 16 chỗ</option>
-                <option value="29">Xe 29 chỗ</option>
+                {/* <option value="16">Xe 16 chỗ</option>
+                <option value="29">Xe 29 chỗ</option> */}
               </select>
               <BiChevronDown className="option__input-icon" />
             </div>

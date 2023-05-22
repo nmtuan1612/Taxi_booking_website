@@ -32,33 +32,37 @@ export const getPrices = (formData = form) => {
   if (bookType === "xedisanbay") {
     if (km < 30) {
       price = 250000;
-    } else {
+    } else if (km < 40) {
       price = 312000;
+    } else {
+      price = 312000 + (km - 40) * GIA_1;
     }
   } else if (bookType === "xesanbayve") {
     if (km < 30) {
       price = 300000;
-    } else {
+    } else if (km < 40) {
       price = 362000;
+    } else {
+      price = 362000 + (km - 40) * GIA_1;
     }
   } else {
-    if (km <= NGUONG_1) {
-      price = km * GIA_1;
-    } // km > NGUONG_1
-    else {
-      if (km <= NGUONG_2) {
-        price = NGUONG_1 * GIA_1 + (km - NGUONG_1) * GIA_2;
-      } // km > NGUONG_2
-      else {
-        price =
-          NGUONG_1 * GIA_1 +
-          (NGUONG_2 - NGUONG_1) * GIA_2 +
-          (km - NGUONG_2) * GIA_3;
+    // if (km <= NGUONG_1) {
+    price = km * GIA_1;
+    // } // km > NGUONG_1
+    // else {
+    //   if (km <= NGUONG_2) {
+    //     price = NGUONG_1 * GIA_1 + (km - NGUONG_1) * GIA_2;
+    //   } // km > NGUONG_2
+    //   else {
+    //     price =
+    //       NGUONG_1 * GIA_1 +
+    //       (NGUONG_2 - NGUONG_1) * GIA_2 +
+    //       (km - NGUONG_2) * GIA_3;
 
-        if (km > NGUONG_3) {
-        }
-      }
-    }
+    //     if (km > NGUONG_3) {
+    //     }
+    //   }
+    // }
   }
 
   if (0 < parseInt(hours, 10) && parseInt(hours, 10) < 8) {

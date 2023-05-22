@@ -35,6 +35,7 @@
         flex-direction: column;
         & h1 {
           line-height: 34px;
+          font-size: 32px;
         }
       }
 
@@ -215,6 +216,7 @@
 @media screen and (max-width: 850px) {
   .booking__form-main > div:nth-child(2) {
     width: 70% !important;
+    min-width: unset !important;
     // height: 300px !important;
   }
 }
